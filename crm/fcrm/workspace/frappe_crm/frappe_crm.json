@@ -1,6 +1,6 @@
 {
  "charts": [],
- "content": "[{\"id\":\"1nr6UkvDiL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\"><b>PORTAL</b></span>\",\"col\":12}},{\"id\":\"1hyi8SysUY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CRM Portal Page\",\"col\":3}},{\"id\":\"kXyTTJ0CqC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sleekflow Tool\",\"col\":3}},{\"id\":\"VgeWLYOuAS\",\"type\":\"paragraph\",\"data\":{\"text\":\"<b>SHORTCUTS</b>\",\"col\":12}},{\"id\":\"A66FpG-K3T\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leads\",\"col\":3}},{\"id\":\"wVr1s2litv\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Registration Form\",\"col\":3}},{\"id\":\"--ctU8DVKU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Campaign\",\"col\":3}},{\"id\":\"uXZNCdqxy0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contacts\",\"col\":3}},{\"id\":\"kpMii8fRt-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Follow Up\",\"col\":3}},{\"id\":\"TZ7cULX3Tk\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
+ "content": "[{\"id\":\"1nr6UkvDiL\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h5\\\"><b>PORTAL</b></span>\",\"col\":12}},{\"id\":\"1hyi8SysUY\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"CRM Portal Page\",\"col\":3}},{\"id\":\"kXyTTJ0CqC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Sleekflow Tool\",\"col\":3}},{\"id\":\"VgeWLYOuAS\",\"type\":\"paragraph\",\"data\":{\"text\":\"<b>SHORTCUTS</b>\",\"col\":12}},{\"id\":\"hCpfL_Tr6T\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Registration Form\",\"col\":3}},{\"id\":\"A66FpG-K3T\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Leads\",\"col\":3}},{\"id\":\"kpMii8fRt-\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Follow Up\",\"col\":3}},{\"id\":\"--ctU8DVKU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Campaign\",\"col\":3}},{\"id\":\"uXZNCdqxy0\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Contacts\",\"col\":3}},{\"id\":\"TZ7cULX3Tk\",\"type\":\"spacer\",\"data\":{\"col\":12}}]",
  "creation": "2023-11-27 13:55:17.090361",
  "custom_blocks": [],
  "docstatus": 0,
@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Frappe CRM",
  "links": [],
- "modified": "2026-09-24 15:28:57.164490",
+ "modified": "2026-11-03 15:37:34.744723",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "Frappe CRM",

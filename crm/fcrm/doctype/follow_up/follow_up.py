@@ -6,6 +6,23 @@ from frappe.model.document import Document
 
 
 class FollowUp(Document):
+    # begin: auto-generated types
+    # This code is auto-generated. Do not modify anything in this block.
+
+    from typing import TYPE_CHECKING
+
+    if TYPE_CHECKING:
+        from frappe.types import DF
+
+        coment: DF.SmallText | None
+        follow_up_date: DF.Date | None
+        leads: DF.Link
+        leads_name: DF.Data | None
+        next_follow_up_date: DF.Date | None
+        prospect_owner: DF.Link | None
+        status: DF.Literal["Tertarik", "Tidak Tertarik", "Belum Tertarik", "Broadcast Whatsapp", "Re-Follow Up", "Terdaftar di PTN/PTS/Institusi", "Read Tidak di Respon", "Callback", "Telpon Tidak di Angkat", "Telpon Tidak Aktif", "Telpon di Tolak", "Ingin Konsultasi ke Kampus", "Wrong Number", "Menunggu PTN/Instansi", "Minat Beasiswa", "Lain-Lain"]
+        subject: DF.Literal["Whatsapp", "Call", "Email", "Visit"]
+    # end: auto-generated types
     pass
 	# def validate(self):
 	# 	if self.leads:

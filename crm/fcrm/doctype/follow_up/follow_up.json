@@ -62,7 +62,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Follow Up Result",
-   "options": "Tertarik\nTidak Tertarik\nBelum Tertarik\nBroadcast Whatsapp\nRe-Follow Up\nTerdaftar di PTN/PTS/Institusi Lain\nRead Tidak di Respon\nCallback\nTelpon Tidak di Angkat\nTelpon Tidak Aktif\nTelpon di Tolak\nIngin Konsultasi ke Kampus\nLain-Lain"
+   "options": "Tertarik\nTidak Tertarik\nBelum Tertarik\nBroadcast Whatsapp\nRe-Follow Up\nTerdaftar di PTN/PTS/Institusi\nRead Tidak di Respon\nCallback\nTelpon Tidak di Angkat\nTelpon Tidak Aktif\nTelpon di Tolak\nIngin Konsultasi ke Kampus\nWrong Number\nMenunggu PTN/Instansi\nMinat Beasiswa\nLain-Lain"
   },
   {
    "fieldname": "coment",
@@ -79,7 +79,7 @@
    "link_fieldname": "lead_name"
   }
  ],
- "modified": "2026-08-31 16:32:37.491929",
+ "modified": "2026-11-13 11:37:37.690984",
  "modified_by": "Administrator",
  "module": "FCRM",
  "name": "Follow Up",

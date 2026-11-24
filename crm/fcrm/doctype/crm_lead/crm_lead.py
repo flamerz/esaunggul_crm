@@ -5,7 +5,7 @@ import json
 
 import frappe
 from frappe import _
-from frappe.desk.form.assign_to import add as assign
+from frappe.desk.form.assign_to import _add as assign
 from frappe.model.document import Document
 from frappe.utils import validate_email_address
 
@@ -28,7 +28,6 @@ class CRMLead(Document):
 		from crm.fcrm.doctype.crm_products.crm_products import CRMProducts
 		from crm.fcrm.doctype.crm_rolling_response_time.crm_rolling_response_time import CRMRollingResponseTime
 		from crm.fcrm.doctype.crm_status_change_log.crm_status_change_log import CRMStatusChangeLog
-		from crm.fcrm.doctype.follow_up_detail.follow_up_detail import FollowUpDetail
 		from frappe.types import DF
 
 		annual_revenue: DF.Currency
@@ -72,7 +71,6 @@ class CRMLead(Document):
 		source: DF.Link | None
 		status: DF.Link
 		status_change_log: DF.Table[CRMStatusChangeLog]
-		table_cufc: DF.Table[FollowUpDetail]
 		territory: DF.Link | None
 		total: DF.Currency
 		twitter: DF.Data | None

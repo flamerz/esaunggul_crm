@@ -15,8 +15,8 @@ class FollowUpDetail(Document):
 		from frappe.types import DF
 
 		comment: DF.SmallText | None
-		follow_up_date: DF.Date | None
-		follow_up_result: DF.Literal["Tertarik", "Tidak Tertarik", "Belum Tertarik", "Broadcast Whatsapp", "Re-Follow Up", "Terdaftar di PTN/PTS/Institusi Lain", "Read Tidak di Respon", "Callback", "Telpon Tidak di Angkat", "Telpon Tidak Aktif", "Telpon di Tolak", "Ingin Konsultasi ke Kampus", "Lain-Lain"]
+		follow_up_date: DF.Datetime | None
+		follow_up_result: DF.Literal["Tertarik", "Tidak Tertarik", "Belum Tertarik", "Broadcast Whatsapp", "Re-Follow Up", "Terdaftar di PTN/PTS/Institusi", "Wrong Number", "Menunggu PTN/Instansi", "Minat Beasiswa", "Read Tidak di Respon", "Callback", "Telpon Tidak di Angkat", "Telpon Tidak Aktif", "Telpon di Tolak", "Ingin Konsultasi ke Kampus", "Broadcast Email", "Lain-Lain"]
 		fu_detail: DF.Data | None
 		next_follow_up_date: DF.Date | None
 		parent: DF.Data
