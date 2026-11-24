@@ -5,7 +5,7 @@ import json
 
 import frappe
 from frappe import _
-from frappe.desk.form.assign_to import _add as assign
+from frappe.desk.form.assign_to import add as assign
 from frappe.model.document import Document
 from frappe.utils import validate_email_address
 
@@ -25,18 +25,18 @@ class CRMLead(Document):
 	from typing import TYPE_CHECKING
 
 	if TYPE_CHECKING:
-		from frappe.types import DF
-
 		from crm.fcrm.doctype.crm_products.crm_products import CRMProducts
-		from crm.fcrm.doctype.crm_rolling_response_time.crm_rolling_response_time import (
-			CRMRollingResponseTime,
-		)
+		from crm.fcrm.doctype.crm_rolling_response_time.crm_rolling_response_time import CRMRollingResponseTime
 		from crm.fcrm.doctype.crm_status_change_log.crm_status_change_log import CRMStatusChangeLog
+		from crm.fcrm.doctype.follow_up_detail.follow_up_detail import FollowUpDetail
+		from frappe.types import DF
 
 		annual_revenue: DF.Currency
 		communication_status: DF.Link | None
+		company_description: DF.SmallText | None
 		converted: DF.Check
 		email: DF.Data | None
+		facebook: DF.Data | None
 		facebook_form_id: DF.Data | None
 		facebook_lead_id: DF.Data | None
 		first_name: DF.Data
@@ -51,6 +51,7 @@ class CRMLead(Document):
 		last_response_time: DF.Duration | None
 		lead_name: DF.Data | None
 		lead_owner: DF.Link | None
+		linkedin: DF.Data | None
 		lost_notes: DF.Text | None
 		lost_reason: DF.Link | None
 		middle_name: DF.Data | None
@@ -59,6 +60,7 @@ class CRMLead(Document):
 		net_total: DF.Currency
 		no_of_employees: DF.Literal["1-10", "11-50", "51-200", "201-500", "501-1000", "1000+"]
 		organization: DF.Data | None
+		organization_logo: DF.AttachImage | None
 		phone: DF.Data | None
 		products: DF.Table[CRMProducts]
 		response_by: DF.Datetime | None
@@ -70,8 +72,10 @@ class CRMLead(Document):
 		source: DF.Link | None
 		status: DF.Link
 		status_change_log: DF.Table[CRMStatusChangeLog]
+		table_cufc: DF.Table[FollowUpDetail]
 		territory: DF.Link | None
 		total: DF.Currency
+		twitter: DF.Data | None
 		website: DF.Data | None
 	# end: auto-generated types
 

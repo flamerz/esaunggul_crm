@@ -5,7 +5,6 @@ from frappe import _
 from frappe.custom.doctype.property_setter.property_setter import make_property_setter
 from frappe.desk.form.assign_to import set_status
 from frappe.model import no_value_fields
-from frappe.model.delete_doc import get_dynamic_linked_docs, get_linked_docs
 from frappe.model.document import get_controller
 from frappe.utils import make_filter_tuple
 from pypika import Criterion
@@ -13,6 +12,56 @@ from pypika import Criterion
 from crm.api.views import get_views
 from crm.fcrm.doctype.crm_form_script.crm_form_script import get_form_script
 from crm.utils import is_frappe_version
+
+try:
+	from frappe.model.delete_doc import get_dynamic_linked_docs, get_linked_docs
+except ImportError:
+	# Frappe v15 fallback: these helpers only exist in Frappe v16+
+	from frappe.model.dynamic_links import get_dynamic_link_map
+	from frappe.model.rename_doc import get_link_fields
+
+	def get_linked_docs(doc):
+		ignored = set(frappe.get_hooks("ignore_links_on_delete"))
+		result = []
+		for lf in get_link_fields(doc.doctype):
+			link_dt, link_field = lf["parent"], lf["fieldname"]
+			if lf["issingle"] or link_dt in ignored:
+				continue
+			try:
+				meta = frappe.get_meta(link_dt)
+			except frappe.DoesNotExistError:
+				frappe.clear_last_message()
+				continue
+			fields = ["name", "parent", "parenttype"] if meta.istable else ["name"]
+			for item in frappe.db.get_values(link_dt, {link_field: doc.name}, fields, as_dict=True):
+				ref_dt = item.get("parenttype") or link_dt
+				ref_dn = item.get("parent") or item.name
+				if ref_dt in ignored or (ref_dt == doc.doctype and ref_dn == doc.name):
+					continue
+				result.append({"reference_doctype": ref_dt, "reference_docname": ref_dn})
+		return result
+
+	def get_dynamic_linked_docs(doc):
+		ignored = set(frappe.get_hooks("ignore_links_on_delete"))
+		result = []
+		for df in get_dynamic_link_map().get(doc.doctype, []):
+			if df.parent in ignored:
+				continue
+			meta = frappe.get_meta(df.parent)
+			if meta.issingle:
+				continue
+			fields = ["name", "parent", "parenttype"] if meta.istable else ["name"]
+			for item in frappe.get_all(
+				df.parent,
+				filters={df.options: doc.doctype, df.fieldname: doc.name},
+				fields=fields,
+			):
+				ref_dt = item.get("parenttype") if meta.istable else df.parent
+				ref_dn = item.get("parent") if meta.istable else item.name
+				if ref_dt in ignored:
+					continue
+				result.append({"reference_doctype": ref_dt, "reference_docname": ref_dn})
+		return result
 
 COUNT_NAME = (
 	{"COUNT": "name", "as": "total_count"}
